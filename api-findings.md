@@ -17,6 +17,37 @@ Example:
 
 `https://smarter-live.firebaseio.com/devices/<deviceId>.json?auth=<ID_TOKEN>`
 
+## Obtaining IDToken
+
+Make a `POST` request to `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=<API Key>`
+
+Pass the following JSON body:
+
+```
+{
+    "email": "<email address>",
+    "password": "<password>",
+    "returnSecureToken": true
+}
+```
+
+Use the email address and password associated with your Smarter account (the one used to login to the app).
+
+Response example:
+
+```
+{
+    "kind": "identitytoolkit#VerifyPasswordResponse",
+    "localId": "<local ID number>",
+    "email": "<your email>",
+    "displayName": "",
+    "idToken": "<your id token>",
+    "registered": true,
+    "refreshToken": "<your refresh token>",
+    "expiresIn": "3600"
+}
+```
+
 # 2. Database Structure
 
 Root layout:
